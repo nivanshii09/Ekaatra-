@@ -1,6 +1,6 @@
 import heroFacade from '../assets/images/Main building.jpg';
-import galleryLobby from '../assets/images/Lobby2.jpg';
-import lobbyFacadeDusk from '../assets/images/Lobby1.jpg';
+import galleryLobby from '../assets/images/Lobby1.jpg';
+import lobbyFacadeDusk from '../assets/images/Main building.jpg';
 import galleryFoyer from '../assets/images/Bedroom.jpg';
 import deluxeGarden from '../assets/images/King room.jpg';
 import galleryLogo from '../assets/images/Main logo.jpg';
