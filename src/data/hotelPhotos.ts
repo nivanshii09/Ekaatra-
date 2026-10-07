@@ -1,3 +1,10 @@
+import heroFacade from '../assets/images/Lobby1.jpg';
+import galleryLobby from '../assets/images/Lobby2.jpg';
+import galleryFoyer from '../assets/images/Bedroom.jpg';
+import deluxeGarden from '../assets/images/King room.jpg';
+import galleryLogo from '../assets/images/Main logo.jpg';
+import buildingTower from '../assets/images/Main building.jpg';
+
 // Authentic photographic configuration for Ekaatra by PEM (Kukas, Jaipur).
 // Contains high-fidelity photographic assets corresponding to the property captures:
 // 1st: Facade at dusk
@@ -69,11 +76,11 @@ export const EKAATRA_PHOTO_SLOTS: PhotoSlotMeta[] = [
 
 // High-fidelity photographic assets for all 6 real property slots
 export const EKAATRA_DEFAULT_PHOTOGRAPHS: Record<string, string> = {
-  hero_facade: '/src/assets/images/Lobby1.jpg',
-  gallery_lobby: '/src/assets/images/Lobby2.jpg',
-  gallery_foyer: '/src/assets/images/Bedroom.jpg',
-  deluxe_garden: '/src/assets/images/King room.jpg',
-  gallery_logo: '/src/assets/images/Main logo.jpg',
-  building_tower: '/src/assets/images/Main building.jpg',
+  hero_facade: heroFacade,
+  gallery_lobby: galleryLobby,
+  gallery_foyer: galleryFoyer,
+  deluxe_garden: deluxeGarden,
+  gallery_logo: galleryLogo,
+  building_tower: buildingTower,
 };
 
