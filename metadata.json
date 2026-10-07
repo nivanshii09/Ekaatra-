@@ -1,0 +1,8 @@
+{
+  "name": "Remix Ekaatra – Luxury Hotel \u0026 Retreat in Kukas, Rajasthan",
+  "description": "An intimate luxury sanctuary in Kukas, Rajasthan blending modern heritage, tranquil courtyards, refined dining, and bespoke experiences.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
