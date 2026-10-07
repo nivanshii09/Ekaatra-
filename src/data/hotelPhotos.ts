@@ -1,4 +1,4 @@
-import heroFacade from '../assets/images/Lobby1.jpg';
+import heroFacade from '../assets/images/Main building.jpg';
 import galleryLobby from '../assets/images/Lobby2.jpg';
 import galleryFoyer from '../assets/images/Bedroom.jpg';
 import deluxeGarden from '../assets/images/King room.jpg';
