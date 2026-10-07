@@ -69,11 +69,11 @@ export const EKAATRA_PHOTO_SLOTS: PhotoSlotMeta[] = [
 
 // High-fidelity photographic assets for all 6 real property slots
 export const EKAATRA_DEFAULT_PHOTOGRAPHS: Record<string, string> = {
-  hero_facade: '/src/assets/images/facade_at_dusk_1791382660843.jpg',
-  gallery_lobby: '/src/assets/images/lobby_sanctuary_1791382675810.jpg',
-  gallery_foyer: '/src/assets/images/foyer_level_three_1791382691363.jpg',
-  deluxe_garden: '/src/assets/images/deluxe_king_bedroom_1791382716089.jpg',
-  gallery_logo: '/src/assets/images/ekaatra_brand_logo_1791382727442.jpg',
-  building_tower: '/src/assets/images/building_exterior_1791382846033.jpg',
+  hero_facade: '/src/assets/images/Lobby1.jpg',
+  gallery_lobby: '/src/assets/images/Lobby2.jpg',
+  gallery_foyer: '/src/assets/images/Bedroom.jpg',
+  deluxe_garden: '/src/assets/images/King room.jpg',
+  gallery_logo: '/src/assets/images/Main logo.jpg',
+  building_tower: '/src/assets/images/Main building.jpg',
 };
 
