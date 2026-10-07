@@ -133,7 +133,7 @@ export const INSTAGRAM_STORIES: InstagramStory[] = [
   {
     id: 'story-facade',
     title: 'The Facade',
-    imageKey: 'hero_facade',
+    imageKey: 'facade_dusk',
     badge: 'Kukas',
     description: 'White boutique architecture, black-mullioned arches & warm twilight illumination in Kukas, Rajasthan.',
   },
@@ -163,7 +163,7 @@ export const INSTAGRAM_STORIES: InstagramStory[] = [
 export const INSTAGRAM_POSTS: InstagramPost[] = [
   {
     id: 'ig-1',
-    imageKey: 'hero_facade',
+    imageKey: 'facade_dusk',
     caption: 'When twilight falls over Kukas, the white arched windows of Ekaatra awaken in warm golden light. A sanctuary designed to pause, breathe, and belong. 🌙✨ #EkaatraByPEM #Kukas #JaipurHospitality #BoutiqueHotel',
     likes: '512',
     comments: '42',
