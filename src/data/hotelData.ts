@@ -84,7 +84,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: 'Boutique Tower Facade at Dusk',
     category: 'property',
     caption: 'Modern white 5-storey boutique architecture in Kukas, Rajasthan, with glowing black-mullioned arched windows at twilight.',
-    image: 'hero_facade',
+    image: 'facade_dusk',
     featured: true,
   },
   {
