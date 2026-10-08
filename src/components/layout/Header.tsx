@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Calendar, MapPin, Instagram, ExternalLink } from 'lucide-react';
-import { HOTEL_INFO } from '../../data/hotelData';
+import { Menu, X, Calendar, MapPin, Instagram, ExternalLink, Camera } from 'lucide-react';
+import { HOTEL_INFO, WHATSAPP_CONFIG } from '../../data/hotelData';
 import { EkaatraLogo } from '../ui/EkaatraLogo';
+import { WhatsAppIcon } from '../ui/WhatsAppIcon';
+import { useImageContext } from '../../context/ImageContext';
 
 interface HeaderProps {
   onOpenBooking: () => void;
@@ -11,6 +13,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { openManager } = useImageContext();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,33 +88,35 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
           </nav>
 
           {/* Zone 3: 1–2 primary actions (Top Bar Contract) */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2.5 sm:space-x-3">
+            <button
+              type="button"
+              onClick={() => openManager('building_tower')}
+              className={`inline-flex items-center justify-center px-3 py-2 text-xs uppercase tracking-[0.16em] font-medium transition-all duration-200 whitespace-nowrap gap-1.5 cursor-pointer shadow-xs ${
+                isScrolled
+                  ? 'border border-[#1C1917]/25 text-[#1C1917] hover:bg-[#B89355] hover:text-white hover:border-[#B89355]'
+                  : 'border border-white/30 text-white bg-black/25 backdrop-blur-xs hover:bg-white/20 hover:border-white'
+              }`}
+              title="Attach your exact photo files (Main building.png, etc.)"
+            >
+              <Camera className="w-3.5 h-3.5 text-[#B89355]" />
+              <span className="hidden md:inline">Attach Real Photos</span>
+            </button>
+
             <a
-              href={HOTEL_INFO.contact.instagramUrl}
+              href={WHATSAPP_CONFIG.getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className={`hidden md:inline-flex items-center gap-1.5 px-3 py-2 text-xs uppercase tracking-[0.16em] font-medium transition-colors border ${
+              className={`hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs uppercase tracking-[0.18em] font-medium transition-all duration-200 whitespace-nowrap gap-1.5 shadow-xs ${
                 isScrolled
-                  ? 'border-[#ECE7DE] text-[#57534E] hover:text-[#1C1917] hover:border-[#B89355]'
-                  : 'border-white/30 text-white/90 hover:text-white hover:border-white'
+                  ? 'bg-[#1C1917] text-[#FAF8F5] hover:bg-[#25D366] hover:text-white'
+                  : 'bg-white/95 text-[#1C1917] hover:bg-[#25D366] hover:text-white hover:shadow-lg'
               }`}
-              title="Follow @ekaatrabypem on Instagram"
+              title="Book via WhatsApp +91 98996 11425"
             >
-              <Instagram className="w-3.5 h-3.5 text-[#D9AA82]" />
-              <span>@ekaatrabypem</span>
+              <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366] group-hover:text-white" />
+              <span>Book via WhatsApp</span>
             </a>
-
-            <button
-              onClick={onOpenBooking}
-              className={`hidden sm:inline-flex items-center justify-center px-5 py-2 text-xs uppercase tracking-[0.18em] font-medium transition-all duration-200 whitespace-nowrap ${
-                isScrolled
-                  ? 'bg-[#1C1917] text-[#FAF8F5] hover:bg-[#B89355]'
-                  : 'bg-white/90 text-[#1C1917] hover:bg-white hover:shadow-lg'
-              }`}
-            >
-              <Calendar className="w-3.5 h-3.5 mr-2 opacity-80" />
-              Book Your Stay
-            </button>
 
             {/* Mobile Menu Toggle Button */}
             <button
@@ -198,28 +203,32 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
             </a>
 
             <button
+              type="button"
               onClick={() => {
                 setMobileMenuOpen(false);
-                onOpenBooking();
+                openManager('building_tower');
               }}
-              className="w-full py-3 bg-[#1C1917] text-[#FAF8F5] text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#B89355] transition-colors flex items-center justify-center gap-2"
+              className="w-full py-3 bg-[#1C1917] hover:bg-[#B89355] text-white text-xs uppercase tracking-[0.2em] font-medium transition-colors flex items-center justify-center gap-2 shadow-sm cursor-pointer"
             >
-              <Calendar className="w-4 h-4" />
-              Book Your Stay
+              <Camera className="w-4 h-4 text-[#B89355]" />
+              <span>Attach Real Photos (Main building.png)</span>
             </button>
 
-            <div className="text-xs text-[#7D7569] space-y-1.5">
+            <a
+              href={WHATSAPP_CONFIG.getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs uppercase tracking-[0.2em] font-medium transition-colors flex items-center justify-center gap-2 shadow-sm"
+            >
+              <WhatsAppIcon className="w-4 h-4 text-white" />
+              <span>Book via WhatsApp</span>
+            </a>
+
+            <div className="text-xs text-[#7D7569] space-y-1.5 pt-1">
               <p className="font-medium text-[#1C1917]">Ekaatra by PEM, Jaipur</p>
               <p className="text-[11px] leading-relaxed">{HOTEL_INFO.address.line1}, {HOTEL_INFO.address.locality}</p>
-              <a
-                href={HOTEL_INFO.contact.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[11px] text-[#B89355] hover:underline block"
-              >
-                Instagram: {HOTEL_INFO.contact.instagram}
-              </a>
-              <p className="text-[11px] text-[#A8583B]">Telephone: {HOTEL_INFO.contact.phone}</p>
+              <p className="text-[11px] text-[#78716C]">Telephone: {HOTEL_INFO.contact.phone}</p>
             </div>
           </div>
         </div>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { X, Calendar, Users, BedSingle, CheckCircle2, Loader2, ArrowRight, ArrowLeft, ShieldCheck, Printer } from 'lucide-react';
-import { ROOMS_DATA, HOTEL_INFO } from '../../data/hotelData';
+import { ROOMS_DATA, HOTEL_INFO, WHATSAPP_CONFIG } from '../../data/hotelData';
 import { Room, BookingRecord } from '../../types/hotel';
+import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -449,20 +450,34 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
-              <button
-                onClick={handlePrint}
-                className="w-full sm:w-auto px-4 py-2 border border-[#DFD7C8] text-xs uppercase tracking-widest text-[#1C1917] hover:bg-[#F5F2EA] flex items-center justify-center gap-1.5"
+              <a
+                href={WHATSAPP_CONFIG.getWhatsAppUrl(
+                  `Hello Ekaatra, I would like to confirm my booking enquiry.\nRef: ${confirmedBooking.bookingRef}\nName: ${confirmedBooking.guestName}\nRoom: ${confirmedBooking.roomName}\nDates: ${confirmedBooking.checkIn} to ${confirmedBooking.checkOut} (${confirmedBooking.guests} guests).\nPlease share confirmation details.`
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-5 py-2.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs uppercase tracking-widest font-medium flex items-center justify-center gap-2 shadow-sm transition-colors"
               >
-                <Printer className="w-3.5 h-3.5" />
-                <span>Print Voucher</span>
-              </button>
+                <WhatsAppIcon className="w-3.5 h-3.5 text-white" />
+                <span>Confirm on WhatsApp</span>
+              </a>
 
-              <button
-                onClick={onClose}
-                className="w-full sm:w-auto px-6 py-2.5 bg-[#1C1917] text-[#FAF8F5] hover:bg-[#B89355] text-xs uppercase tracking-widest font-medium transition-colors"
-              >
-                Return to Ekaatra Website
-              </button>
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                <button
+                  onClick={handlePrint}
+                  className="flex-1 sm:flex-initial px-4 py-2 border border-[#DFD7C8] text-xs uppercase tracking-widest text-[#1C1917] hover:bg-[#F5F2EA] flex items-center justify-center gap-1.5"
+                >
+                  <Printer className="w-3.5 h-3.5" />
+                  <span>Print Voucher</span>
+                </button>
+
+                <button
+                  onClick={onClose}
+                  className="flex-1 sm:flex-initial px-5 py-2 bg-[#1C1917] text-[#FAF8F5] hover:bg-[#B89355] text-xs uppercase tracking-widest font-medium transition-colors"
+                >
+                  Close
+                </button>
+              </div>
             </div>
           </div>
         )}

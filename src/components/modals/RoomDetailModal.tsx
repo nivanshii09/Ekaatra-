@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, Maximize2, Users, BedSingle, Compass, Check, Calendar, ArrowRight } from 'lucide-react';
 import { Room } from '../../types/hotel';
 import { LuxuryImage } from '../ui/LuxuryImage';
+import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
 interface RoomDetailModalProps {
   room: Room | null;
@@ -145,10 +146,10 @@ export const RoomDetailModal: React.FC<RoomDetailModalProps> = ({ room, onClose,
                   onClose();
                   onBook(room);
                 }}
-                className="px-6 py-3 bg-[#1C1917] text-[#FAF8F5] hover:bg-[#B89355] transition-colors text-xs uppercase tracking-[0.2em] font-medium flex items-center gap-2 shadow-md"
+                className="px-6 py-3 bg-[#1C1917] text-[#FAF8F5] hover:bg-[#B89355] transition-colors text-xs uppercase tracking-[0.2em] font-medium flex items-center gap-2 shadow-md cursor-pointer"
               >
-                <Calendar className="w-3.5 h-3.5" />
-                <span>Reserve Room</span>
+                <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
+                <span>Book via WhatsApp</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>

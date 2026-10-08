@@ -81,12 +81,12 @@ export const Introduction: React.FC<IntroductionProps> = () => {
             <div className="relative overflow-hidden shadow-2xl bg-[#E8DEC9]">
               <LuxuryImage
                 id="gallery_lobby"
-                alt="Ekaatra reception lobby with Adiyogi sculpture and marble front desk"
+                alt="Lobby with Adiyogi sculpture and marble front desk"
                 aspectRatio="4/3"
                 className="w-full object-cover transition-transform duration-700 hover:scale-105"
               />
               <div className="absolute top-3 left-3 bg-[#1C1917]/85 text-white px-3 py-1 text-[10px] uppercase tracking-widest font-medium">
-                Arrival Sanctuary
+                Lobby
               </div>
             </div>
 
@@ -95,30 +95,30 @@ export const Introduction: React.FC<IntroductionProps> = () => {
               <div className="relative overflow-hidden shadow-lg bg-[#E8DEC9]">
                 <LuxuryImage
                   id="gallery_foyer"
-                  alt="Level 3 elevator foyer and guestroom 302 entrance"
+                  alt="Level 3 Elevator Foyer and Room"
                   aspectRatio="4/3"
                   className="w-full object-cover transition-transform duration-500 hover:scale-105"
                 />
-                <span className="absolute bottom-2 left-2 bg-black/70 text-white text-[9px] uppercase px-2 py-0.5 tracking-wider">
-                  Level 3 Foyer
+                <span className="absolute bottom-2 left-2 bg-black/70 text-white text-[9px] uppercase px-2 py-0.5 tracking-wider truncate max-w-[90%]">
+                  Level 3 Elevator Foyer and Room
                 </span>
               </div>
               <div className="relative overflow-hidden shadow-lg bg-[#E8DEC9]">
                 <LuxuryImage
                   id="deluxe_garden"
-                  alt="Deluxe room with solid teak bed and palace painting"
+                  alt="Deluxe King Bedroom with solid teak bed and palace painting"
                   aspectRatio="4/3"
                   className="w-full object-cover transition-transform duration-500 hover:scale-105"
                 />
-                <span className="absolute bottom-2 left-2 bg-black/70 text-white text-[9px] uppercase px-2 py-0.5 tracking-wider">
-                  Teak King Suite
+                <span className="absolute bottom-2 left-2 bg-black/70 text-white text-[9px] uppercase px-2 py-0.5 tracking-wider truncate max-w-[90%]">
+                  Deluxe King Bedroom
                 </span>
               </div>
             </div>
 
             {/* Caption (Editorial Museum rule) */}
             <p className="text-xs font-serif text-[#78716C] italic text-right">
-              The ground-level reception sanctuary and upper guestroom corridors at Ekaatra by PEM.
+              The Lobby, Level 3 Elevator Foyer and Room, and Deluxe King Bedroom at Ekaatra by PEM.
             </p>
           </div>
         </div>

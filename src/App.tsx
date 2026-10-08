@@ -20,8 +20,9 @@ import { AdminPrototypeView } from './components/admin/AdminPrototypeView';
 // Context & Types
 import { ImageProvider } from './context/ImageContext';
 import { Room, BookingRecord, EventEnquiryRecord } from './types/hotel';
-import { ROOMS_DATA, HOTEL_INFO } from './data/hotelData';
-import { Instagram, Calendar } from 'lucide-react';
+import { ROOMS_DATA, HOTEL_INFO, WHATSAPP_CONFIG } from './data/hotelData';
+import { Calendar } from 'lucide-react';
+import { WhatsAppIcon } from './components/ui/WhatsAppIcon';
 
 function HotelAppContent() {
   // Navigation & View Mode
@@ -43,10 +44,14 @@ function HotelAppContent() {
   const [sessionBookings, setSessionBookings] = useState<BookingRecord[]>([]);
   const [sessionEnquiries] = useState<EventEnquiryRecord[]>([]);
 
-  // Handlers
+  // Handlers - Direct to WhatsApp
   const handleOpenBooking = (room?: Room) => {
-    setSelectedRoomForBooking(room || null);
-    setIsBookingOpen(true);
+    const url = room
+      ? WHATSAPP_CONFIG.getWhatsAppUrl(
+          `Hello Ekaatra, I would like to enquire about availability and booking for the ${room.name}. Please share the details.`
+        )
+      : WHATSAPP_CONFIG.getWhatsAppUrl();
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   const handleQuickAvailability = (params: {
@@ -56,13 +61,8 @@ function HotelAppContent() {
     roomType: string;
   }) => {
     const matchedRoom = ROOMS_DATA.find((r) => r.id === params.roomType) || ROOMS_DATA[0];
-    setSelectedRoomForBooking(matchedRoom);
-    setBookingInitialDates({
-      checkIn: params.checkIn,
-      checkOut: params.checkOut,
-      guests: params.guests,
-    });
-    setIsBookingOpen(true);
+    const msg = `Hello Ekaatra, I would like to enquire about availability and booking for the ${matchedRoom.name}.\nDates: ${params.checkIn} to ${params.checkOut} (${params.guests} ${params.guests === 1 ? 'guest' : 'guests'}).\nPlease share the details.`;
+    window.open(WHATSAPP_CONFIG.getWhatsAppUrl(msg), '_blank', 'noopener,noreferrer');
   };
 
   const handleExplore = () => {
@@ -130,24 +130,24 @@ function HotelAppContent() {
         onOpenAdmin={() => setIsAdminView(true)}
       />
 
-      {/* Floating Property Concierge & Instagram Dock */}
+      {/* Floating Property Concierge & WhatsApp Dock */}
       <aside aria-label="Social and booking dock" className="fixed bottom-6 right-6 z-30 flex items-center gap-2">
         <a
-          href={HOTEL_INFO.contact.instagramUrl}
+          href={WHATSAPP_CONFIG.getWhatsAppUrl()}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-[#1C1917] text-[#FAF8F5] hover:bg-[#B89355] border border-[#ECE7DE] shadow-2xl px-4 py-2.5 text-xs uppercase tracking-widest font-medium flex items-center gap-2 transition-all group"
-          title="Visit official Instagram @ekaatrabypem"
+          className="bg-[#25D366] hover:bg-[#1EBE5D] text-white border border-[#25D366]/40 shadow-2xl px-4 py-2.5 text-xs uppercase tracking-widest font-medium flex items-center gap-2 transition-all group"
+          title="Direct WhatsApp booking and enquiries (+91 98996 11425)"
         >
-          <Instagram className="w-4 h-4 text-[#D9AA82] group-hover:text-white transition-colors" />
-          <span>@ekaatrabypem</span>
+          <WhatsAppIcon className="w-4 h-4 text-white" />
+          <span>WhatsApp Us</span>
         </a>
 
         <button
           onClick={() => handleOpenBooking()}
-          className="bg-[#FAF8F5] text-[#1C1917] hover:bg-[#B89355] hover:text-white border border-[#DFD7C8] shadow-2xl px-4 py-2.5 text-xs uppercase tracking-widest font-medium flex items-center gap-2 transition-all group hidden sm:inline-flex cursor-pointer"
+          className="bg-[#1C1917] text-[#FAF8F5] hover:bg-[#B89355] border border-[#ECE7DE] shadow-2xl px-4 py-2.5 text-xs uppercase tracking-widest font-medium flex items-center gap-2 transition-all group hidden md:inline-flex cursor-pointer"
         >
-          <Calendar className="w-4 h-4 text-[#B89355] group-hover:text-white transition-colors" />
+          <Calendar className="w-4 h-4 text-[#D9AA82] group-hover:text-white transition-colors" />
           <span>Book Stay</span>
         </button>
       </aside>

@@ -13,17 +13,17 @@ export const ArchitectureFoyers: React.FC = () => {
             <div className="relative overflow-hidden bg-[#E8DEC9] border border-[#DFD7C8] shadow-xl group aspect-[4/3] sm:aspect-[16/11]">
               <LuxuryImage
                 id="gallery_foyer"
-                alt="Level 3 elevator foyer with circular halo cove lighting, marble elevator portal, and Room 302 entrance"
+                alt="Level 3 Elevator Foyer and Room with circular halo cove lighting, marble elevator portal, and Room 302 entrance"
                 className="w-full h-full object-cover"
               />
               <div className="absolute top-4 left-4 bg-[#1C1917]/90 backdrop-blur-xs text-[#FAF8F5] px-3.5 py-1.5 text-[11px] uppercase tracking-[0.2em] font-medium">
-                Capture 04 · Level 3 Foyer & Circulation
+                Capture 03 · Level 3 Elevator Foyer and Room
               </div>
             </div>
 
             {/* Architectural Detail Note */}
             <p className="text-xs font-serif italic text-[#78716C] mt-3 text-right">
-              Circular halo ambient ceiling fixture, textured granite elevator portal, and Room 302 at Ekaatra by PEM.
+              Circular halo ambient ceiling fixture, textured granite elevator portal, and Level 3 elevator foyer and room at Ekaatra by PEM.
             </p>
           </div>
 

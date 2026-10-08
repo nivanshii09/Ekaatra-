@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Calendar, Users, BedSingle, ArrowRight } from 'lucide-react';
 import { ROOMS_DATA } from '../../data/hotelData';
+import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
 interface QuickBookingBarProps {
   onCheckAvailability: (bookingState: {
@@ -113,20 +114,24 @@ export const QuickBookingBar: React.FC<QuickBookingBarProps> = ({ onCheckAvailab
           <div>
             <button
               type="submit"
-              className="w-full bg-[#1C1917] text-[#FAF8F5] hover:bg-[#B89355] transition-all duration-300 py-2.5 px-4 text-xs uppercase tracking-[0.18em] font-medium flex items-center justify-center gap-2 group whitespace-nowrap"
+              className="w-full bg-[#1C1917] text-[#FAF8F5] hover:bg-[#B89355] transition-all duration-300 py-2.5 px-4 text-xs uppercase tracking-[0.18em] font-medium flex items-center justify-center gap-2 group whitespace-nowrap cursor-pointer shadow-sm"
             >
-              <span>Check Availability</span>
+              <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366] group-hover:text-white transition-colors" />
+              <span>Book via WhatsApp</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
         </form>
 
         <div className="mt-3 text-center text-[11px] text-[#7D7569] flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
+          <span className="text-[#1C1917] font-medium flex items-center gap-1">
+            <WhatsAppIcon className="w-3 h-3 text-[#25D366]" />
+            Direct WhatsApp: +91 98996 11425
+          </span>
+          <span aria-hidden="true">·</span>
           <span>Best Direct Rate Guarantee</span>
           <span aria-hidden="true">·</span>
-          <span>Flexible Cancellation Options</span>
-          <span aria-hidden="true">·</span>
-          <span>Complimentary Herbal Teas & Breakfast</span>
+          <span>Instant Availability & Quotation</span>
         </div>
       </div>
     </div>

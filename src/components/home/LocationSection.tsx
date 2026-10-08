@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, Navigation, Car, Plane, Compass, ExternalLink, Instagram } from 'lucide-react';
-import { HOTEL_INFO } from '../../data/hotelData';
+import { HOTEL_INFO, WHATSAPP_CONFIG } from '../../data/hotelData';
+import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
 export const LocationSection: React.FC = () => {
   return (
@@ -46,6 +47,30 @@ export const LocationSection: React.FC = () => {
                   <ExternalLink className="w-3 h-3 text-[#78716C]" />
                 </a>
               </div>
+            </div>
+
+            {/* Direct WhatsApp Concierge Card */}
+            <div className="p-4 bg-[#F5F2EA] border border-[#DFD7C8] flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center shrink-0">
+                  <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
+                </div>
+                <div>
+                  <span className="text-xs font-medium text-[#1C1917] block">WhatsApp Concierge</span>
+                  <span className="text-[11px] text-[#57534E] font-medium">+91 98996 11425</span>
+                  <span className="text-[10px] text-[#78716C] font-light block">Direct bookings & enquiries</span>
+                </div>
+              </div>
+              <a
+                href={WHATSAPP_CONFIG.getWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3.5 py-1.5 bg-[#25D366] text-white hover:bg-[#1EBE5D] text-[10px] uppercase tracking-wider font-medium transition-colors inline-flex items-center gap-1.5 shrink-0 shadow-xs"
+                title="Open WhatsApp chat with Ekaatra"
+              >
+                <WhatsAppIcon className="w-3 h-3 text-white" />
+                <span>WhatsApp Us</span>
+              </a>
             </div>
 
             {/* Official Instagram Connect Card */}

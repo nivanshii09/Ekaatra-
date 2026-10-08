@@ -1,7 +1,8 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Instagram, MessageSquare, ArrowUp, Lock } from 'lucide-react';
-import { HOTEL_INFO } from '../../data/hotelData';
+import { MapPin, Phone, Mail, Instagram, ArrowUp, Lock } from 'lucide-react';
+import { HOTEL_INFO, WHATSAPP_CONFIG } from '../../data/hotelData';
 import { EkaatraLogo } from '../ui/EkaatraLogo';
+import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
 interface FooterProps {
   onOpenPolicy: (type: 'policies' | 'privacy' | 'terms') => void;
@@ -78,10 +79,19 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPolicy, onOpenAdmin }) => 
               </div>
 
               <div className="flex items-start gap-2">
-                <MessageSquare className="w-3.5 h-3.5 text-[#B89355] shrink-0 mt-0.5" />
+                <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366] shrink-0 mt-0.5" />
                 <div>
                   <span className="text-[10px] uppercase tracking-wider text-[#78716C] block">WhatsApp Concierge</span>
-                  <span className="text-stone-300">{HOTEL_INFO.contact.conciergeWhatsApp}</span>
+                  <a
+                    href={WHATSAPP_CONFIG.getWhatsAppUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-stone-300 hover:text-[#25D366] transition-colors flex items-center gap-1.5"
+                    title="Chat on WhatsApp +91 98996 11425"
+                  >
+                    <span>+91 98996 11425</span>
+                    <span className="text-[9px] bg-[#25D366]/20 text-[#25D366] px-1.5 py-0.2 rounded-xs font-medium">WhatsApp Us</span>
+                  </a>
                 </div>
               </div>
 

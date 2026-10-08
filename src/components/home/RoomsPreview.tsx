@@ -3,6 +3,7 @@ import { ArrowRight, Maximize2, Users, BedSingle, Sparkles, Check, ShieldCheck }
 import { Room } from '../../types/hotel';
 import { ROOMS_DATA } from '../../data/hotelData';
 import { LuxuryImage } from '../ui/LuxuryImage';
+import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
 interface RoomsPreviewProps {
   onSelectRoom: (room: Room) => void;
@@ -41,7 +42,7 @@ export const RoomsPreview: React.FC<RoomsPreviewProps> = ({ onSelectRoom, onBook
               className="w-full h-full object-cover"
             />
             <div className="absolute top-4 left-4 bg-[#1C1917]/90 backdrop-blur-xs text-[#FAF8F5] px-3.5 py-1.5 text-[11px] uppercase tracking-[0.2em] font-medium">
-              Levels 2, 3 & 4 Guestrooms
+              Capture 04 · Deluxe King Bedroom
             </div>
           </div>
 
@@ -123,7 +124,8 @@ export const RoomsPreview: React.FC<RoomsPreviewProps> = ({ onSelectRoom, onBook
                   onClick={() => onBookRoom(primaryRoom)}
                   className="px-5 py-2.5 bg-[#B89355] hover:bg-[#A37E40] text-[#1C1917] text-xs uppercase tracking-widest font-medium transition-colors flex items-center gap-2 cursor-pointer shadow-sm"
                 >
-                  <span>Reserve</span>
+                  <WhatsAppIcon className="w-3.5 h-3.5 text-[#1C1917]" />
+                  <span>Reserve via WhatsApp</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
