@@ -49,6 +49,12 @@ export const HOTEL_INFO = {
   ],
 };
 
+export const WHATSAPP_CONFIG = {
+  phoneNumber: '919899611425',
+  getWhatsAppUrl: (message = 'Hello Ekaatra, I would like to enquire about availability and booking. Please share the details.') =>
+    `https://wa.me/919899611425?text=${encodeURIComponent(message)}`,
+};
+
 export const ROOMS_DATA: Room[] = [
   {
     id: 'deluxe-teak-king',
